@@ -26,7 +26,7 @@
  1. Drag it from the [animations_bin](https://github.com/keyboard-firmware/lck75-oled-animations/tree/main/lck75/animations_bin) folder into the [animations](https://github.com/keyboard-firmware/lck75-oled-animations/tree/main//lck75/animations) folder.
  2. Import the animation file into  [lck75.c](https://github.com/keyboard-firmware/lck75-oled-animations/blob/db70a9d407e65d285fe090b0d688fa8e2fac45d4/lck75/lck75.c#L16.) by adding a line or replacing a previous animation
  3. Call the animation function in the [animation_select](https://github.com/keyboard-firmware/lck75-oled-animations/blob/db70a9d407e65d285fe090b0d688fa8e2fac45d4/lck75/lck75.c#L45) by adding another case or replacing a previous animation
-4. Re-flash and test it out!
+4. Re-flash and test it out! - Look for QK_BOOT key in keymaps file to set into flash mode
 
 ## Repo Filestructure: <br/>
 
