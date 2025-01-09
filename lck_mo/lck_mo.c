@@ -12,12 +12,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include "lck_mo.h"
+#include "quantum.h"
+
 #include "./animations/killua.c"
 #include "./animations/ship.c"
-#include "./animations/nami.c"
 
-bool encoder_update_kb(uint8_t index, bool clockwise) {
+_Bool encoder_update_kb(uint8_t index, _Bool clockwise) {
     if (!encoder_update_user(index, clockwise)) {
         return false;
     }
@@ -30,7 +30,7 @@ bool encoder_update_kb(uint8_t index, bool clockwise) {
 }
 
 int animation_select = 0;
-#define MAX_ANIMATIONS 3
+#define MAX_ANIMATIONS 2
 
 
 oled_rotation_t oled_init_kb(oled_rotation_t rotation) {
@@ -38,22 +38,20 @@ oled_rotation_t oled_init_kb(oled_rotation_t rotation) {
 }
 
 
-bool oled_task_kb(void) {
+_Bool oled_task_kb(void) {
     if (!oled_task_user()) {
         return false;
     }
     if (animation_select == 0){
         return killua();
-    } else if (animation_select == 1){
-        return nami();
     }
-     else if (animation_select == 2){
+     else if (animation_select == 1){
         return ship();
     }
     return false;
 }
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+_Bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case KC_MAIL:
       if (record->event.pressed) {
